@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= bar.name %> - <%= bar.location %></h1>
+    <a href="/">Home</a> / <a href="/bars">Back To Bars</a>
+    <hr>
+    <h3>Beers Served Here:</h3>
+    <% if (bar.beers.length) { %>
+        <ul>
+            <% bar.beers.forEach(function(beer){ %>
+                <li>
+                    <h4><a href="/beers/<%= beer._id %>"><%= beer.name %></a> - <small><a href="/bars/<%= bar.id %>/beers/<%= beer.id %>?_method=DELETE" method="post">Stop Serving</a></small></h4>
+                </li> 
+            <% }); %>
+            <li>
+                <a href="/bars/<%= bar.id %>/beers/new">Add Beer</a>
+            </li>
+        </ul>
+        <% } else { %>
+            <h5>No Beers Being Served</h5>
+            <a href="/bars/<%= bar.id %>/beers/new">Add Beer</a><br>
+    <% } %>
+    <a href ="/bars/<%= bar._id %>?_method=delete" rel="nofollow">Delete Bar</a>
+</body>
+</html>

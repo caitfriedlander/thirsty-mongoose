@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <h1>All Beers</h1>
+   <a href="/">Home</a> / <a href="/beers/new">New Beer</a>
+   <hr>
+   <table>
+       <tr>
+           <th>Name</th>
+           <th>Style</th>
+           <th>Number of Bars Serving</th>
+       </tr>
+       <% beers.forEach(function(beer) { %>
+           <tr>
+               <td><a href="/beers/<%= beer._id %>"><%= beer.name %></a></td>
+               <td><%= beer.style %></td>
+               <td><%= beer.bars.length %></td>
+           </tr>
+       <% }); %>
+   </table>
+</body>
+</html>

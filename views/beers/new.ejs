@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add A Beer</h1>
+    <a href="/">Home</a> / <a href="/beers">Back To Beers</a>
+    <hr>
+    <form action="/beers" method="post">
+        <label>Name:
+            <input type="text" name="name">
+        </label><br>
+        <label>Style:
+        <select name="style">
+            <option value="Lager">Lager</option>
+            <option value="IPA">IPA</option>
+            <option value="Stout">Stout</option>
+            <option value="Ale">Ale</option>
+            <option value="Craft">Craft</option>
+        </select>
+        </label><br>
+        <input type="submit" value="Add Beer">
+    </form>
+</body>
+</html>

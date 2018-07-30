@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add some beers to <%= bar.name %>!</h1>
+    <a href="/">Home</a> / <a href="/bars/<%= barId %>">Back To Bar</a>
+    <% if (beers.length) { %>
+        <% beers.forEach(function(beer) { %> 
+            <ul>
+                <form action="/bars/<%= barId %>/beers/<%= beer.id %>" method="post">
+                <button type="submit">
+                    <%= beer.name %>
+                    <small class="text-muted"><%= beer.style %></small>
+                </button>
+                </form>
+            </ul>
+        <% }) %>
+    <% } else { %>
+        <h2>Already Serving All Beers!</h2>
+    <% } %>
+</body>
+</html>

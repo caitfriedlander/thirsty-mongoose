@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= beer.name %> - <%= beer.style %></h1>
+    <a href="/">Home</a> / <a href="/beers">Back To Beers</a>
+    <hr>
+    <h3>Served At:</h3>
+    <ul>
+        <% beer.bars.forEach(function(bar){ %>
+            <li>
+                <h4><a href="/bars/<%= bar._id %>"><%= bar.name %></a> - <small><%= bar.location %></small></h4>
+            </li> 
+         <% }); %>
+    </ul>
+    <h3>Comments:</h3>
+    <ul>
+        <% beer.comments.forEach(function(comment){ %>
+            <li><%= comment.content %></li> 
+         <% }); %>
+    </ul>
+    <form action="/beers/<%= beer.id %>/comments" method="post">
+        <div class="form-group">
+          <input type="text" name="content" placeholder="add comment...">
+        </div>
+        <input type="submit" value="Add Comment">
+      </form>
+    <a href="#">Add Comment</a><br>
+    <a href ="/beers/<%= beer._id %>?_method=delete" rel="nofollow">Delete Beer</a>
+</body>
+</html>
